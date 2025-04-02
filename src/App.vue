@@ -1,30 +1,32 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+// import ReciepeForm from './components/RecipeForm.vue';
+import RecipeList from './components/RecipeList.vue';
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <main>
+    <RecipeList />
+  </main>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+  *{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  }
+  body {
+    width: 100%;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  main{
+    width: 100%;
+    display: flex;
+    align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  }
 </style>
