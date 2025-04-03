@@ -3,7 +3,7 @@
     <h1>Recipe List</h1>
     <ul v-if="recipes.length">
       <div v-for="(recipe, index) in recipes" :key="index" class="recipeItem">
-        <img :src="recipe.images[0]" :alt="recipe.images[0]" />
+        <img :src="`/assets/${recipe.images[0]}`" :alt="recipe.images[0]" />
         <div class="recipeItemContainer">
           <h2>{{ recipe.name }}</h2>
           <p><strong>Ingredients:</strong></p>
@@ -28,7 +28,6 @@
 </template>
 
 <script setup>
-import { recipes } from "../../mock-data/recipe";
 import { defineProps } from "vue";
 defineProps({
   recipes: {
@@ -60,7 +59,7 @@ defineProps({
       width: 50%;
       height: 40px;
       font-weight: 700;
-      background-color: #ff9800; 
+      background-color: #ff9800;
       color: white;
       border: none;
       padding: 10px 15px;
@@ -69,8 +68,8 @@ defineProps({
       transition:
         background-color 0.2s ease,
         transform 0.2s ease;
-        margin-top: 20px;
-        &:hover {
+      margin-top: 20px;
+      &:hover {
         background-color: #e68900;
         transform: scale(1.01);
       }
@@ -88,6 +87,19 @@ defineProps({
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 6px;
+    img {
+      width: 200px; /* Set a fixed width for the image */
+      height: 300px; /* Maintain aspect ratio */
+      border-radius: 8px; /* Add rounded corners */
+      object-fit: cover; /* Ensure the image fits nicely */
+      margin-right: 15px; /* Add spacing between the image and text */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+      transition: transform 0.2s ease; /* Add a hover animation */
+      &:hover {
+        transform: scale(1.05); /* Slightly enlarge the image on hover */
+      }
+    }
+
     .recipeItemContainer {
       width: 60%;
       display: flex;
@@ -103,7 +115,9 @@ defineProps({
         padding: 10px 15px;
         border-radius: 5px;
         cursor: pointer;
-        transition: background-color 0.2s ease,background-color 0.3s ease;
+        transition:
+          background-color 0.2s ease,
+          background-color 0.3s ease;
         &:hover {
           background-color: #0073ed;
           transform: scale(1.01);
