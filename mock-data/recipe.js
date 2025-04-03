@@ -8,7 +8,7 @@ export const recipes= [
         "category": "Italian",
         "rating": 4.8,
         "servings": 4,
-        "images": ["carbonara-main.jpg", "carbonara-closeup.jpg", "carbonara-ingredients.jpg"],
+        "images": ["../assets/carbonara-main.jpg", "carbonara-closeup.jpg", "carbonara-ingredients.jpg"],
         "ingredients": [
           "200g spaghetti",
           "100g pancetta",
