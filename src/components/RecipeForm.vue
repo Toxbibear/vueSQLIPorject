@@ -58,7 +58,7 @@
       </div>
 
       <div class="form-group">
-        <label for="rating">Rating (1-5)</label>
+        <label for="rating">Rating (1 to 5)</label>
         <input
           type="number"
           id="rating"
@@ -119,7 +119,10 @@
 
 <script setup>
 import { reactive } from "vue";
-import { recipes } from "../../mock-data/recipe"; // Import the recipes array
+import { useRecipeStore } from "../store/RecipeStore"; 
+// import { recipes } from "../../mock-data/recipe";
+
+const recipeStore = useRecipeStore(); // Access the store
 
 const recipe = reactive({
   id: null,
@@ -136,9 +139,9 @@ const recipe = reactive({
 });
 
 function submitRecipe() {
-  // Add the new recipe to the recipes array
-  recipes.push({
-    id: recipes.length + 1, // Generate a new ID
+  // Add the new recipe to the store
+  recipeStore.addRecipe({
+    id: Date.now(), // Generate a unique ID
     name: recipe.name,
     description: recipe.description,
     prepTime: recipe.prepTime,
@@ -151,7 +154,6 @@ function submitRecipe() {
     instructions: recipe.instructions.split("."), // Convert instructions to an array
   });
 
-  console.log("Updated recipes:", recipes);
   alert("Recipe submitted successfully!");
 
   // Reset the form

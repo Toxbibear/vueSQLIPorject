@@ -6,13 +6,13 @@
         <img :src="`/assets/${recipe.images[0]}`" :alt="recipe.images[0]" />
         <div class="recipeItemContainer">
           <h2>{{ recipe.name }}</h2>
-          <p><strong>Ingredients:</strong></p>
+          <p><strong>Ingredients</strong></p>
           <div>
             <p v-for="(ingredient, index) in recipe.ingredients" :key="index">
               {{ ingredient }} &nbsp;
             </p>
           </div>
-          <p><strong>Instructions:</strong></p>
+          <p><strong>Instructions</strong></p>
           <div>
             <p v-for="(instruction, index) in recipe.instructions" :key="index">
               {{ instruction }} &nbsp;
@@ -73,9 +73,8 @@ const closeModal = () => {
   z-index: 1000;
   .modal {
     background-color: white;
-    padding: 20px;
     border-radius: 8px;
-    width: 500px;
+    width: 700px;
     max-width: 90%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
