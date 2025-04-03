@@ -1,9 +1,19 @@
 import { mount } from '@vue/test-utils';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import RecipeList from '../src/components/RecipeList.vue';
 import { recipes } from '../mock-data/recipe.js';
+import { createPinia, setActivePinia } from 'pinia';
+
+
 
 describe('RecipeList.vue', () => {
+  let pinia;
+
+  // Initialize Pinia before each test
+  beforeEach(() => {
+    pinia = createPinia();
+    setActivePinia(pinia); // Set Pinia as the active instance
+  });
   it('renders a list of recipes when recipes are provided', () => {
 
     let ListRecipe;
@@ -47,7 +57,7 @@ describe('RecipeList.vue', () => {
 
     // Check if the first recipe's image is rendered correctly
     const firstImage = wrapper.find('img');
-    expect(firstImage.attributes('src')).toBe('/assets/../assets/carbonara-main.jpg');
+    expect(firstImage.attributes('src')).toBe('/assets/carbonara-main.jpg');
   });
 
   it('renders the details button for each recipe', () => {

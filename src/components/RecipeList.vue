@@ -23,19 +23,18 @@
       </div>
       <button @click="openModal" class="addRecipe">ADD RECIPE</button>
     </ul>
-    <p v-else>No recipes available. Please add some!</p>
-
     <div v-if="isModalOpen" class="modal-overlay">
       <div class="modal">
         <button class="close-modal" @click="closeModal">X</button>
         <RecipeForm />
       </div>
     </div>
+    <p v-else>No recipes available. Please add some!</p>
   </div>
 </template>
 
 <script setup>
-import { recipes } from "../../mock-data/recipe";
+import { useRecipeStore } from "../store/RecipeStore";
 import { ref } from "vue";
 import RecipeForm from "./RecipeForm.vue"; // Import the RecipeForm component
 
@@ -47,6 +46,9 @@ const openModal = () => {
 const closeModal = () => {
   isModalOpen.value = false; // Close the modal
 };
+
+const recipeStore = useRecipeStore();
+const recipes = recipeStore.getAllRecipes;
 </script>
 
 <style scoped>
