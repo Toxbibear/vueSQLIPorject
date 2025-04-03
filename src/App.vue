@@ -1,7 +1,6 @@
 <template>
   <main>
-    <RecipeList :recipes="recipes" />
-    <!-- <RecipeItem :recipe="recipes" /> -->
+    <RouterView />
  </main>
 </template>
 
@@ -9,7 +8,6 @@
 // import ReciepeForm from './components/RecipeForm.vue';
 import RecipeList from "./components/RecipeList.vue";
 // import RecipeItem from "./components/RecipeItem.vue";
-import { recipes } from "../mock-data/recipe";
 </script>
 
 <style scoped>
